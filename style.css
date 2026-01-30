@@ -1,0 +1,220 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ================= MAIN ================= */
+.main {
+    width: 1200px;
+    margin: auto;
+}
+
+/* ================= HEADER ================= */
+.header {
+    background-color: rgb(33, 150, 243);
+    position: fixed;
+    width: 1200px;
+    top: 0;
+    z-index: 100;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    height: 40px;
+}
+
+.header ul li {
+    padding: 10px 20px;
+    border-right: 1px solid #fff;
+}
+
+.header ul li:hover {
+    background-color: #ffeb3b;
+}
+
+.header ul li:hover a {
+    color: red;
+}
+
+.header a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* ================= BANNER ================= */
+.banner {
+    padding-top: 40px;
+}
+
+.banner img {
+    width: 100%;
+    display: block;
+}
+
+/* ================= CONTENT ================= */
+.content {
+    display: grid;
+    grid-template-columns: 3.5fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* ================= HOT PRODUCTS ================= */
+.test {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-hot {
+    background-color: rgb(249, 249, 249);
+    color: rgb(33, 150, 243);
+    border-bottom: 2px solid rgb(33, 150, 243);
+    padding: 8px 0;
+    width: 100%;
+}
+
+.list-products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.list-products img {
+    width: 100%;
+}
+
+.child-products {
+    text-align: center;
+}
+
+.purple {
+    color: blueviolet;
+    font-size: 14px;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+s {
+    margin-left: 8px;
+    color: grey;
+    font-weight: normal;
+}
+
+.list-products button {
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 20px;
+    cursor: pointer;
+}
+
+.child-products button:hover {
+    background-color: #ff9800;
+    transform: scale(1.1);
+}
+
+.child-products:hover {
+     transform: scale(1.1);
+}
+/* ================= DANH MUC ================= */
+.danhmuc .star-danhmuc {
+    background-color: rgb(33, 150, 243);
+    padding: 12px 0;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.danhmuc ul {
+    margin-top: 15px;
+}
+
+.danhmuc li {
+    list-style-image: url(./IMG5/line.bmp);
+    list-style-position: inside;
+    border: 1px solid #ccc;
+    padding: 12px 10px;
+    font-size: 14px;
+}
+
+.danhmuc li:hover {
+    background-color: #ffeb3b;
+    color: red;
+}
+
+/* ================= FORM ================= */
+form {
+    margin: 20px 10px 0;
+    border: 2px solid rgb(33, 150, 243);
+    border-radius: 5px;
+    padding: 20px 10px;
+}
+
+form p {
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+form input {
+    width: 100%;
+    padding: 6px;
+}
+
+.form-center {
+    text-align: center;
+}
+
+form button {
+    display: block;
+    margin: 20px auto 0;
+    padding: 8px 20px;
+    background-color: rgb(33, 150, 243);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    background-color: rgb(51, 51, 51);
+    color: white;
+    padding: 20px 15px;
+    gap: 20px;
+}
+
+.footer h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    font-size: 14px;
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+.footer span {
+    color: rgb(33, 150, 243);
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: red;
+}
