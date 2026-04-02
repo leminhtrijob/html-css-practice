@@ -16,6 +16,36 @@
     </head>
 
     <body>
+        <body>
+<!-- AUDIO ĐẶT NGAY ĐẦU BODY -->
+<audio id="music" loop>
+    <source src="music_MTP.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("music");
+let played = false;
+
+// Khi user scroll lần đầu → phát nhạc
+window.addEventListener("scroll", () => {
+    if (!played) {
+        music.play().catch(err => console.log("Browser blocked autoplay:", err));
+        played = true;
+    }
+});
+
+// Khi user click lần đầu → phát nhạc
+document.addEventListener("click", function handler() {
+    if (!played) {
+        music.play()
+            .then(() => console.log("Music started"))
+            .catch(err => console.log("Browser blocked autoplay:", err));
+        played = true;
+        document.removeEventListener("click", handler); // chỉ chạy 1 lần
+    }
+});
+</script>
+
         <div class="main">
             <!-- HEADER -->
             <div class="header">
@@ -214,30 +244,6 @@
                 </div>
             </div>
         </div>
-       <audio id="music" loop>
-    <source src="music_MTP.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const music = document.getElementById("music");
-let played = false;
-
-// Khi user scroll lần đầu tiên → phát nhạc
-window.addEventListener("scroll", () => {
-    if (!played) {
-        music.play().catch(err => console.log("Browser blocked autoplay"));
-        played = true;
-    }
-});
-
-// Hoặc click vào body → phát nhạc
-document.body.addEventListener("click", () => {
-    if (!played) {
-        music.play().catch(err => console.log("Browser blocked autoplay"));
-        played = true;
-    }
-});
-</script>
 
         <!-- tuyết -->
         <script>
