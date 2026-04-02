@@ -54,9 +54,7 @@
                     <li><a href="#">Liên hệ</a></li>
                 </ul>
                 <!-- Nút nhạc đẹp -->
-                        <button id="toggleMusic" class="music-btn">
-                            🔈 Bật nhạc
-                        </button>
+                <button id="toggleMusic" class="music-btn">🔈 Bật nhạc</button>
             </div>
 
             <!-- BANNER -->
@@ -73,7 +71,10 @@
 
                     <div class="list-products">
                         <!-- PRODUCT ITEM -->
-                        <div class="child-products">
+                        <div
+                            class="child-products"
+                            data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu"
+                        >
                             <img src="./IMG5/sp.png" alt="" />
                             <p class="purple">Điện thoại iPhone XS Max 256GB</p>
                             <p class="red">
@@ -83,7 +84,10 @@
                             <button>Mua hàng</button>
                         </div>
 
-                        <div class="child-products">
+                        <div
+                            class="child-products"
+                            data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu"
+                        >
                             <img src="./IMG5/sp2.png" alt="" />
                             <p class="purple">
                                 Điện thoại OPPO A5 (2020) 128GB
@@ -96,7 +100,10 @@
                         </div>
 
                         <!-- lặp sản phẩm -->
-                        <div class="child-products">
+                        <div
+                            class="child-products"
+                            data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu"
+                        >
                             <img src="./IMG5/sp.png" alt="" />
                             <p class="purple">Điện thoại iPhone XS Max 256GB</p>
                             <p class="red">
@@ -106,7 +113,10 @@
                             <button>Mua hàng</button>
                         </div>
 
-                        <div class="child-products">
+                        <div
+                            class="child-products"
+                            data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu"
+                        >
                             <img src="./IMG5/sp2.png" alt="" />
                             <p class="purple">
                                 Điện thoại OPPO A5 (2020) 128GB
@@ -118,7 +128,10 @@
                             <button>Mua hàng</button>
                         </div>
 
-                        <div class="child-products">
+                        <div
+                            class="child-products"
+                            data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu"
+                        >
                             <img src="./IMG5/sp.png" alt="" />
                             <p class="purple">Điện thoại iPhone XS Max 256GB</p>
                             <p class="red">
@@ -128,7 +141,10 @@
                             <button>Mua hàng</button>
                         </div>
 
-                        <div class="child-products">
+                        <div
+                            class="child-products"
+                            data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu"
+                        >
                             <img src="./IMG5/sp2.png" alt="" />
                             <p class="purple">
                                 Điện thoại OPPO A5 (2020) 128GB
@@ -140,7 +156,10 @@
                             <button>Mua hàng</button>
                         </div>
 
-                        <div class="child-products">
+                        <div
+                            class="child-products"
+                            data-msg="Chưa học tới, đừng click vào nha 😆, không có gì đâu"
+                        >
                             <img src="./IMG5/sp.png" alt="" />
                             <p class="purple">Điện thoại iPhone XS Max 256GB</p>
                             <p class="red">
@@ -150,7 +169,10 @@
                             <button>Mua hàng</button>
                         </div>
 
-                        <div class="child-products">
+                        <div
+                            class="child-products"
+                            data-msg="Chưa học tới! đừng click vào nha 😆, không có gì đâu"
+                        >
                             <img src="./IMG5/sp2.png" alt="" />
                             <p class="purple">
                                 Điện thoại OPPO A5 (2020) 128GB
@@ -270,6 +292,22 @@
             }
 
             setInterval(createSnowflake, 200); // giảm tần suất tạo tuyết để nhẹ hơn
+        </script>
+
+        <!-- Thẻ audio để phát khi hover -->
+        <audio id="laugh-sound">
+            <source src="laugh.mp3" type="audio/mpeg" />
+        </audio>
+
+        <script>
+            // Khi hover vào sản phẩm, phát âm thanh cười
+            const laugh = document.getElementById("laugh-sound");
+            document.querySelectorAll(".child-products").forEach((prod) => {
+                prod.addEventListener("mouseenter", () => {
+                    laugh.currentTime = 0; // phát lại từ đầu nếu hover liên tục
+                    laugh.play();
+                });
+            });
         </script>
     </body>
 </html>
