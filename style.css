@@ -241,14 +241,60 @@ form button {
       /* Animation đổi màu liên tục */
     animation: colorPulse 2s infinite linear;
 }
-@keyframes colorPulse {
-    0%   { background: linear-gradient(135deg, #ff8a00, #ff3e6c); }
-    25%  { background: linear-gradient(135deg, #ff3e6c, #ff8a00); }
-    50%  { background: linear-gradient(135deg, #ff6f00, #ff1a4d); }
-    75%  { background: linear-gradient(135deg, #ff1a4d, #ff6f00); }
-    100% { background: linear-gradient(135deg, #ff8a00, #ff3e6c); }
+@keyframes jump {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-6px) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
 }
 #toggleMusic:hover {
     transform: scale(1.05);
     opacity: 0.9;
 }
+
+/* Chữ trong sản phẩm nổi khi hover */
+.child-products p {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.child-products:hover p {
+    transform: translateY(-3px);
+    color: #ff6600; /* màu nổi bật */
+}
+
+/* Tooltip */
+.child-products {
+    position: relative; /* cần cho tooltip */
+}
+
+.child-products::after {
+    content: attr(data-msg);
+    position: absolute;
+    bottom: 100%; /* xuất hiện trên đầu sản phẩm */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5px; /* cách sản phẩm 1 chút */
+    background-color: rgba(0,0,0,0.8);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    max-width: 150px;
+    white-space: normal; /* cho phép xuống dòng tự động */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+/* Hiện tooltip khi hover */
+.child-products:hover::after {
+    opacity: 1;
+}
+
