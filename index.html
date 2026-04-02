@@ -88,7 +88,7 @@
                             <button>Mua hàng</button>
                         </div>
 
-                          <div class="child-products">
+                        <div class="child-products">
                             <img src="./IMG5/sp.png" alt="" />
                             <p class="purple">Điện thoại iPhone XS Max 256GB</p>
                             <p class="red">
@@ -110,7 +110,7 @@
                             <button>Mua hàng</button>
                         </div>
 
-                          <div class="child-products">
+                        <div class="child-products">
                             <img src="./IMG5/sp.png" alt="" />
                             <p class="purple">Điện thoại iPhone XS Max 256GB</p>
                             <p class="red">
@@ -132,7 +132,6 @@
                             <button>Mua hàng</button>
                         </div>
                     </div>
-                    
                 </div>
 
                 <!-- DANH MỤC -->
@@ -160,10 +159,18 @@
                         </p>
 
                         <p>Tên đăng nhập:</p>
-                        <input type="text" placeholder="Nhập tên đăng nhập" required/>
+                        <input
+                            type="text"
+                            placeholder="Nhập tên đăng nhập"
+                            required
+                        />
 
                         <p>Mật khẩu:</p>
-                        <input type="password" placeholder="Nhập mật khẩu" required/>
+                        <input
+                            type="password"
+                            placeholder="Nhập mật khẩu"
+                            required
+                        />
 
                         <button class="form-center">Đăng nhập</button>
                     </form>
@@ -207,5 +214,51 @@
                 </div>
             </div>
         </div>
+        <audio id="music" loop>
+            <source src="music_MTP.mp3" type="audio/mpeg" />
+        </audio>
+
+        <script>
+            const music = document.getElementById("music");
+            let played = false;
+
+            window.addEventListener("scroll", () => {
+                if (!played) {
+                    music
+                        .play()
+                        .catch((err) =>
+                            console.log("Browser blocked autoplay"),
+                        );
+                    played = true;
+                }
+            });
+        </script>
+
+        <!-- tuyết -->
+        <script>
+            function createSnowflake() {
+                const snow = document.createElement("div");
+                snow.innerHTML = "❄";
+                snow.style.position = "fixed";
+                snow.style.top = "-10px";
+                snow.style.left = Math.random() * window.innerWidth + "px";
+                snow.style.fontSize = Math.random() * 30 + 20 + "px";
+                snow.style.color = "white";
+                snow.style.opacity = Math.random();
+                snow.style.zIndex = "9999";
+                snow.style.pointerEvents = "none";
+                document.body.appendChild(snow);
+
+                let fall = setInterval(() => {
+                    snow.style.top = snow.offsetTop + 4 + "px";
+                    if (snow.offsetTop > window.innerHeight) {
+                        snow.remove();
+                        clearInterval(fall);
+                    }
+                }, 40);
+            }
+
+            setInterval(createSnowflake, 200); // giảm tần suất tạo tuyết để nhẹ hơn
+        </script>
     </body>
 </html>
