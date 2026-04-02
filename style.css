@@ -13,6 +13,7 @@
 
 /* ================= HEADER ================= */
 .header {
+    display: flex;
     background-color: rgb(33, 150, 243);
     position: fixed;
     width: 1200px;
@@ -124,7 +125,7 @@ s {
 }
 
 .child-products:hover {
-     transform: scale(1.1);
+    transform: scale(1.1);
 }
 /* ================= DANH MUC ================= */
 .danhmuc .star-danhmuc {
@@ -217,4 +218,37 @@ form button {
 
 .footer a:hover {
     color: red;
+}
+/* Cho li chứa nút nhạc gọn */
+
+/* Nút nhạc nhỏ gọn */
+#toggleMusic {
+    margin-left: auto; /* đẩy nút về bên phải */
+    margin-right: 20px; /* cách lề phải 10px */
+
+    background: linear-gradient(135deg, #ff8a00, #ff3e6c);
+    color: white;
+    border: none;
+    padding: 4px 10px; /* giảm padding để vừa li */
+    border-radius: 12px; /* bo tròn vừa phải */
+    font-size: 18px; /* nhỏ hơn chữ menu */
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition:
+        transform 0.2s,
+        opacity 0.2s;
+
+      /* Animation đổi màu liên tục */
+    animation: colorPulse 2s infinite linear;
+}
+@keyframes colorPulse {
+    0%   { background: linear-gradient(135deg, #ff8a00, #ff3e6c); }
+    25%  { background: linear-gradient(135deg, #ff3e6c, #ff8a00); }
+    50%  { background: linear-gradient(135deg, #ff6f00, #ff1a4d); }
+    75%  { background: linear-gradient(135deg, #ff1a4d, #ff6f00); }
+    100% { background: linear-gradient(135deg, #ff8a00, #ff3e6c); }
+}
+#toggleMusic:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
 }
