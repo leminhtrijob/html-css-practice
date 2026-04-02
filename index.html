@@ -214,25 +214,30 @@
                 </div>
             </div>
         </div>
-        <audio id="music" loop>
-            <source src="music_MTP.mp3" type="audio/mpeg" />
-        </audio>
+       <audio id="music" loop>
+    <source src="music_MTP.mp3" type="audio/mpeg">
+</audio>
 
-        <script>
-            const music = document.getElementById("music");
-            let played = false;
+<script>
+const music = document.getElementById("music");
+let played = false;
 
-            window.addEventListener("scroll", () => {
-                if (!played) {
-                    music
-                        .play()
-                        .catch((err) =>
-                            console.log("Browser blocked autoplay"),
-                        );
-                    played = true;
-                }
-            });
-        </script>
+// Khi user scroll lần đầu tiên → phát nhạc
+window.addEventListener("scroll", () => {
+    if (!played) {
+        music.play().catch(err => console.log("Browser blocked autoplay"));
+        played = true;
+    }
+});
+
+// Hoặc click vào body → phát nhạc
+document.body.addEventListener("click", () => {
+    if (!played) {
+        music.play().catch(err => console.log("Browser blocked autoplay"));
+        played = true;
+    }
+});
+</script>
 
         <!-- tuyết -->
         <script>
