@@ -16,35 +16,31 @@
     </head>
 
     <body>
-        <body>
-<!-- AUDIO ĐẶT NGAY ĐẦU BODY -->
-<audio id="music" loop>
-    <source src="music_MTP.mp3" type="audio/mpeg">
-</audio>
+        <!-- AUDIO & Nút bật/tắt nhạc -->
+        <audio id="music" loop>
+            <source src="music_MTP.mp3" type="audio/mpeg" />
+        </audio>
 
-<script>
-const music = document.getElementById("music");
-let played = false;
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const music = document.getElementById("music");
+                const btn = document.getElementById("toggleMusic");
 
-// Khi user scroll lần đầu → phát nhạc
-window.addEventListener("scroll", () => {
-    if (!played) {
-        music.play().catch(err => console.log("Browser blocked autoplay:", err));
-        played = true;
-    }
-});
-
-// Khi user click lần đầu → phát nhạc
-document.addEventListener("click", function handler() {
-    if (!played) {
-        music.play()
-            .then(() => console.log("Music started"))
-            .catch(err => console.log("Browser blocked autoplay:", err));
-        played = true;
-        document.removeEventListener("click", handler); // chỉ chạy 1 lần
-    }
-});
-</script>
+                btn.addEventListener("click", () => {
+                    if (music.paused) {
+                        music
+                            .play()
+                            .then(() => (btn.textContent = "🔇 Tắt nhạc"))
+                            .catch((err) =>
+                                console.log("Browser chặn autoplay:", err),
+                            );
+                    } else {
+                        music.pause();
+                        btn.textContent = "🔈 Bật nhạc";
+                    }
+                });
+            });
+        </script>
 
         <div class="main">
             <!-- HEADER -->
@@ -57,6 +53,10 @@ document.addEventListener("click", function handler() {
                     <li><a href="#">Tuyển dụng</a></li>
                     <li><a href="#">Liên hệ</a></li>
                 </ul>
+                <!-- Nút nhạc đẹp -->
+                        <button id="toggleMusic" class="music-btn">
+                            🔈 Bật nhạc
+                        </button>
             </div>
 
             <!-- BANNER -->
